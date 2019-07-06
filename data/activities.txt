@@ -1,0 +1,11 @@
+1, Image simulation integration pipeline development, 2019-07-05, 2019-07-31, 0.5
+2, imSim development, 2019-07-05, 2020-07-05, 2.5
+3, Extragalactic catalog generation development, 2019-07-01, 2019-10-01, 2
+4, DESCQA development, 2019-07-01, 2020-06-03, 1
+5, Image simulation workflow development, 2019-07-01, 2019-10-01, 0.5
+6, Image validation development, 2019-07-01, 2019-10-01, 0.5
+7, DM catalog validation development, 2019-07-01, 2019-12-01, 1
+8, DRP pipeline development, 2020-01-01, 2020-06-30, 1.5
+9, DC3 image simulation execution, 2020-03-01, 2020-07-01, 0.5
+10, DC2 DRP execution, 2019-07-01, 2019-07-31, 0.5
+11, DC3 DRP execution, 2020-07-01, 2020-09-01, 0.5

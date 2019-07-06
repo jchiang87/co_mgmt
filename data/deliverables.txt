@@ -1,0 +1,18 @@
+1, Image simulation integration pipeline, 2019-07-19, ComputingGroup
+2, Extragalactic catalog generation workflow, 2019-10-01, ComputingGroup
+3, Image simulation workflow interface improvements, 2019-11-01, ComputingGroup
+4, imSim improvements, 2021-01-21, ComputingGroup
+5, Extragalactic catalog validation tools, 2020-06-30, ComputingGroup
+6, Image simulation validation tools, 2019-10-01, ComputingGroup
+7, DM catalog validation tools, 2019-12-01, ComputingGroup
+8, Gen-3 version of DRP pipeline, 2020-06-30, ComputingGroup
+9, Ability to process 10% of Y1 DRP at NERSC, 2020-06-30, ComputingGroup
+10, 5000 sq degree extragalactic catalog, 2019-12-01, ComputingGroup
+11, DC3 simulated images, 2020-07-01, ComputingGroup
+12, DC2 DRP data products, 2019-07-31, ComputingGroup
+13, DC3-era DRP pipeline, 2020-07-01, ComputingGroup
+14, DC3 DRP data products, 2020-09-01, ComputingGroup
+15, Gen-3 LSST Stack, 2020-01-01, External
+16, Gen-3 workflow implementation, 2020-01-01, External
+17, Performance-tuned Gen-3 LSST Stack, 2022-01-01, External
+18, DC3 requirements, 2019-07-019, External
