@@ -1,7 +1,12 @@
 import os
-import sqlite3
 
-def make_tables(conn, schema_file='computing_schemata.sql'):
+__all__ = ['make_tables', 'set_deliverables', 'set_activities',
+           'set_delivery_dependencies', 'set_activity_dependencies']
+
+def make_tables(conn, schema_file=None):
+    if schema_file is None:
+        schema_file = os.path.join(os.environ['CO_MGMT_DIR'], 'data',
+                                   'computing_schemata.sql')
     with open(schema_file) as fd:
         lines = fd.readlines()
     statements = ''.join(lines).split(';')
@@ -11,7 +16,10 @@ def make_tables(conn, schema_file='computing_schemata.sql'):
     cursor.close()
     conn.commit()
 
-def set_deliverables(conn, infile='deliverables.txt'):
+def set_deliverables(conn, infile=None):
+    if infile is None:
+        infile = os.path.join(os.environ['CO_MGMT_DIR'], 'data',
+                              'deliverables.txt')
     values_list = []
     with open(infile) as fd:
         for line in fd:
@@ -27,7 +35,10 @@ def set_deliverables(conn, infile='deliverables.txt'):
     cursor.close()
     conn.commit()
 
-def set_activities(conn, infile='activities.txt'):
+def set_activities(conn, infile=None):
+    if infile is None:
+        infile = os.path.join(os.environ['CO_MGMT_DIR'], 'data',
+                              'activities.txt')
     values_list = []
     with open(infile) as fd:
         for line in fd:
@@ -73,6 +84,7 @@ def set_activity_dependencies(conn):
         (1, 6, 0),
         (2, 1, 1),
         (2, 18, 1),
+        (3, 5, 1),
         (3, 18, 1),
         (6, 18, 0),
         (8, 7, 1),
@@ -82,9 +94,9 @@ def set_activity_dependencies(conn):
         (8, 18, 1),
         (9, 3, 0),
         (9, 4, 1),
-        (9, 5, 1),
         (9, 6, 1),
         (9, 7, 1),
+        (9, 10, 1),
         (9, 18, 1),
         (11, 11, 1),
         (11, 13, 1),
@@ -99,44 +111,3 @@ def set_activity_dependencies(conn):
         cursor.execute(sql)
     cursor.close()
     conn.commit()
-
-if __name__ == '__main__':
-    db_file = 'computing.sqlite3'
-    os.remove(db_file)
-    conn = sqlite3.connect(db_file)
-
-    make_tables(conn)
-    set_deliverables(conn)
-    set_activities(conn)
-    set_delivery_dependencies(conn)
-    set_activity_dependencies(conn)
-
-"""
-CO Deliverables
-* integration pipeline for end-to-end image generation
-* workflow for extragalactic catalog generation
-* interface improvements between image generation workflow components
-* imsim improvements
-* extragalactic catalog validation tools
-* image simulation validation tools
-* DM catalog validation tools
-* Gen-3 butler version of DM processing pipeline
-* Demonstrate ability to process 10% of Y1 LSST data at NERSC
-* 5000 sq degree extragalactic catalog
-* DC3 image simulations
-* Final DC2 data products
-* Final DC3 data prodcuts
-* Commissioning simulation data products
-* resource requirements for Y1 data access and analysis
-
-External deliverables:
-* Gen-3 Stack
-* Gen-3 workflow implementation
-* Performance-tuned Gen-3 Stack
-* DC3 image simulation requirements
-* Commissioning image simulation requirements
-
-Activities
-* DC3 image processing
-
-"""
